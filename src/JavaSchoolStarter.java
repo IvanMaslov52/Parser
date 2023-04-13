@@ -36,26 +36,49 @@ public class JavaSchoolStarter {
                 List<String> split = List.of(list.get(i).trim().split("="));
                 switch (split.get(0).trim().substring(1, split.get(0).trim().length() - 1).toLowerCase()) {
                     case "lastname":
-                        map.put("lastname", split.get(1).trim().substring(1, split.get(1).trim().length() - 1));
+                        if (Objects.equals(split.get(1).trim().substring(1, split.get(1).trim().length() - 1), "null") == false) {
+                            map.put("lastname", split.get(1).trim().substring(1, split.get(1).trim().length() - 1));
+                        } else {
+                            map.put("lastname", null);
+                        }
                         break;
                     case "active":
-                        map.put("active", Boolean.valueOf(split.get(1).trim()));
+                        if (Objects.equals(split.get(1).trim(), "null") == false) {
+                            map.put("active", Boolean.valueOf(split.get(1).trim()));
+                        } else {
+                            map.put("active", null);
+                        }
                         break;
                     case "age":
-                        map.put("age", Long.valueOf(split.get(1).trim()));
+                        if (Objects.equals(split.get(1).trim(), "null") == false) {
+
+                            map.put("age", Long.valueOf(split.get(1).trim()));
+                        } else {
+                            map.put("age", null);
+                        }
                         break;
                     case "cost":
-                        map.put("cost", Double.valueOf(split.get(1).trim()));
+                        if (Objects.equals(split.get(1).trim(), "null") == false) {
+                            map.put("cost", Double.valueOf(split.get(1).trim()));
+                        } else {
+                            map.put("cost", null);
+                        }
                         break;
                     case "id":
-                        map.put("id", Long.valueOf(split.get(1).trim()));
+                        if (Objects.equals(split.get(1).trim(), "null") == false) {
+                            map.put("id", Long.valueOf(split.get(1).trim()));
+                        } else {
+                            map.put("id", null);
+                        }
                         break;
                     default:
                         throw new Exception();
                 }
 
             }
-        } else {
+        } else
+        {
+
             List<String> split = List.of(string.trim().split("="));
             switch (split.get(0).trim().substring(1, split.get(0).trim().length() - 1).toLowerCase()) {
                 case "lastname":
@@ -76,7 +99,7 @@ public class JavaSchoolStarter {
                     break;
                 case "age":
                     if (Objects.equals(split.get(1).trim(), "null") == false) {
-                        System.out.println(split.get(1).trim());
+
                         map.put("age", Long.valueOf(split.get(1).trim()));
                     } else {
                         map.put("age", null);
